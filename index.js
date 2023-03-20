@@ -10,6 +10,7 @@ function renderBooks() {
     bookInstance.querySelector('h4').textContent = book.title;
     bookInstance.querySelector('p').textContent = book.author;
     bookInstance.querySelector('.removeButton').addEventListener('click', () => {
+      // eslint-disable-next-line no-use-before-define
       removeBook(i);
     });
     booksContainer.appendChild(bookInstance);
