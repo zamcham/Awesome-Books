@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Books</title>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div class="container title">
+        <h1>Awesome Books</h1>
+    </div>
+    <div class="booksContainer" id="bookList">
+    </div>
+    <template id="bookInfoTemplate">
+        <div class="book">
+          <h4></h4>
+          <p></p>
+          <button class="removeButton">Remove</button>
+        </div>
+      </template>
+      <div class="booksContainer"></div>
+            <hr>
+        </div>
+    </template>
+    <div class="container" id="addBookForm">
+        <form>
+            <input type="text" id="bookTitle" placeholder="Book Title"><br />
+            <input type="text" id="bookAuthor" placeholder="Author Name"><br />
+            <button id="addBookButton">Add Book</button>
+        </form>
+    </div>
+</body>
+</html>
