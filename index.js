@@ -1,79 +1,38 @@
-// let books = JSON.parse(localStorage.getItem('books') || '[]');
-let booksInfo = [
-{
-    title: 'Trust',
-    Author: 'Hernan Diaz'
-},
-];
-
-// #region generate book section
-// Get the books card template from the DOM
+let booksInfo = JSON.parse(localStorage.getItem('books') || '[]');
 const bookTemplate = document.getElementById('bookInfoTemplate');
-
-// Get the container where the books info will be inserted
 const booksContainer = document.querySelector('.booksContainer');
 
-// Loop through the bookList array and generate the HTML for each book
-for (let i = 0; i < booksInfo.length; i += 1) {
-  // Clone the book template
-  const bookInstance = bookTemplate.content.cloneNode(true);
-
-  // Fill in the details for the project
-  const book = booksInfo[i];
-  bookInstance.querySelector('h4').textContent = book.title;
-  bookInstance.querySelector('p').textContent = book.Author;
-  bookInstance.querySelector('.removeButton').addEventListener('click', () => {
-    removeBook();
-  });
-
-  // Insert the project card into the projects container
-  booksContainer.appendChild(bookInstance);
-}
-
-function removeBook() { // eslint-disable-line no-unused-vars
-    console.log('Hello, i should remove the book');
-};
-// #endregion
-
-// #region Add Book
-function AddBookToList() {
-    let bookTitle = document.getElementById("bookTitle").value;
-    let authorName = document.getElementById("bookAuthor").value;
-    let newBook = {
-        title: bookTitle,
-        author: authorName,
-    };
-    booksInfo.push(newBook);
-    localStorage.setItem('booksData', JSON.stringify(booksInfo));
-}
-// #endregion
-
-function removeBook(index) { 
-  booksInfo.splice(index, 1);
-  localStorage.setItem('books', JSON.stringify(booksInfo));
-  renderBooks();
-};
-
-function removeBook(index) { 
-  booksInfo.splice(index, 1);
-  localStorage.setItem('books', JSON.stringify(booksInfo));
-  renderBooks();
-};
-
 function renderBooks() {
-booksContainer.innerHTML = '';
-
-for (let i = 0; i < booksInfo.length; i += 1) {
-  const bookInstance = bookTemplate.content.cloneNode(true);
-  const book = booksInfo[i];
-  bookInstance.querySelector('h4').textContent = book.title;
-  bookInstance.querySelector('p').textContent = book.Author;
-  bookInstance.querySelector('.removeButton').addEventListener('click', () => {
-    removeBook(i);
-  });
-
-  booksContainer.appendChild(bookInstance);
-}
+  booksContainer.innerHTML = '';
+  for (let i = 0; i < booksInfo.length; i += 1) {
+    const bookInstance = bookTemplate.content.cloneNode(true);
+    const book = booksInfo[i];
+    bookInstance.querySelector('h4').textContent = book.title;
+    bookInstance.querySelector('p').textContent = book.author;
+    bookInstance.querySelector('.removeButton').addEventListener('click', () => {
+      removeBook(i);
+    });
+    booksContainer.appendChild(bookInstance);
+  }
 }
 
+function removeBook(index) {
+  booksInfo.splice(index, 1);
+  localStorage.setItem('books', JSON.stringify(booksInfo));
+  renderBooks();
+}
+
+function addBookToList() {
+  let bookTitle = document.getElementById("bookTitle").value;
+  let authorName = document.getElementById("bookAuthor").value;
+  let newBook = {
+    title: bookTitle,
+    author: authorName,
+  };
+  booksInfo.push(newBook);
+  localStorage.setItem('books', JSON.stringify(booksInfo));
+  renderBooks();
+}
+
+document.getElementById("addBookButton").addEventListener("click", addBookToList);
 renderBooks();

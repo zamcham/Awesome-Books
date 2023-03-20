@@ -14,18 +14,21 @@
     <div class="booksContainer" id="bookList">
     </div>
     <template id="bookInfoTemplate">
-        <div class="bookInfo">
-            <h4>Book Title</h4>
-            <p>Author</p>
-            <button class="removeButton">Remove</button>
+        <div class="book">
+          <h4></h4>
+          <p></p>
+          <button class="removeButton">Remove</button>
+        </div>
+      </template>
+      <div class="booksContainer"></div>
             <hr>
         </div>
     </template>
     <div class="container" id="addBookForm">
         <form>
-            <input type="text" id="bookTitle" name="bookTitle" placeholder="Title"><br><br>
-            <input type="text" id="bookAuthor" name="bookAuthor" placeholder="Author"><br><br>
-            <button class="addButton" id="addButton" type="submit" onclick="AddBookToList()">Add</button>
+            <input type="text" id="bookTitle" placeholder="Book Title"><br />
+            <input type="text" id="bookAuthor" placeholder="Author Name"><br />
+            <button id="addBookButton">Add Book</button>
         </form>
     </div>
 </body>
