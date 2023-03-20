@@ -19,6 +19,7 @@ function renderBooks() {
 function removeBook(index) {
   booksInfo.splice(index, 1);
   localStorage.setItem('books', JSON.stringify(booksInfo));
+  // eslint-disable-next-line no-use-before-define
   renderBooks();
 }
 
