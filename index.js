@@ -1,4 +1,3 @@
-let books = JSON.parse(localStorage.getItem('books') || '[]');
 let booksInfo = [
 {
     title: 'Trust',
@@ -7,10 +6,6 @@ let booksInfo = [
 ];
 
 // #region generate book section
-function removeBook() { // eslint-disable-line no-unused-vars
-    console.log('Hello, i should remove the book');
-};
-
 // Get the books card template from the DOM
 const bookTemplate = document.getElementById('bookInfoTemplate');
 
@@ -32,5 +27,22 @@ for (let i = 0; i < booksInfo.length; i += 1) {
 
   // Insert the project card into the projects container
   booksContainer.appendChild(bookInstance);
+}
+
+function removeBook() { // eslint-disable-line no-unused-vars
+    console.log('Hello, i should remove the book');
+};
+// #endregion
+
+// #region Add Book
+function AddBookToList() {
+    let bookTitle = document.getElementById("bookTitle").value;
+    let authorName = document.getElementById("bookAuthor").value;
+    let newBook = {
+        title: bookTitle,
+        author: authorName,
+    };
+    booksInfo.push(newBook);
+    localStorage.setItem('booksData', JSON.stringify(booksInfo));
 }
 // #endregion
