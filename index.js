@@ -2,12 +2,6 @@ const booksInfo = JSON.parse(localStorage.getItem('books') || '[]');
 const bookTemplate = document.getElementById('bookInfoTemplate');
 const booksContainer = document.querySelector('.booksContainer');
 
-function removeBook(index) {
-  booksInfo.splice(index, 1);
-  localStorage.setItem('books', JSON.stringify(booksInfo));
-  renderBooks();
-}
-
 function renderBooks() {
   booksContainer.innerHTML = '';
   for (let i = 0; i < booksInfo.length; i += 1) {
@@ -20,6 +14,12 @@ function renderBooks() {
     });
     booksContainer.appendChild(bookInstance);
   }
+}
+
+function removeBook(index) {
+  booksInfo.splice(index, 1);
+  localStorage.setItem('books', JSON.stringify(booksInfo));
+  renderBooks();
 }
 
 function addBookToList() {
