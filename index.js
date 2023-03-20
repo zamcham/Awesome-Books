@@ -1,4 +1,4 @@
-let books = JSON.parse(localStorage.getItem('books') || '[]');
+// let books = JSON.parse(localStorage.getItem('books') || '[]');
 let booksInfo = [
 {
     title: 'Trust',
@@ -34,3 +34,33 @@ for (let i = 0; i < booksInfo.length; i += 1) {
   booksContainer.appendChild(bookInstance);
 }
 // #endregion
+
+function removeBook(index) { 
+  booksInfo.splice(index, 1);
+  localStorage.setItem('books', JSON.stringify(booksInfo));
+  renderBooks();
+};
+
+function removeBook(index) { 
+  booksInfo.splice(index, 1);
+  localStorage.setItem('books', JSON.stringify(booksInfo));
+  renderBooks();
+};
+
+function renderBooks() {
+booksContainer.innerHTML = '';
+
+for (let i = 0; i < booksInfo.length; i += 1) {
+  const bookInstance = bookTemplate.content.cloneNode(true);
+  const book = booksInfo[i];
+  bookInstance.querySelector('h4').textContent = book.title;
+  bookInstance.querySelector('p').textContent = book.Author;
+  bookInstance.querySelector('.removeButton').addEventListener('click', () => {
+    removeBook(i);
+  });
+
+  booksContainer.appendChild(bookInstance);
+}
+}
+
+renderBooks();
