@@ -11,14 +11,16 @@
     <div class="container title">
         <h1>Awesome Books</h1>
     </div>
-    <div class="container" id="bookList">
+    <div class="booksContainer" id="bookList">
+    </div>
+    <template id="bookInfoTemplate">
         <div class="bookInfo">
             <h4>Book Title</h4>
             <p>Author</p>
-            <button>Remove</button>
+            <button class="removeButton">Remove</button>
             <hr>
         </div>
-    </div>
+    </template>
     <div class="container" id="addBookForm">
         <form>
             <input type="text" id="bookTitle" name="bookTitle" placeholder="Title"><br><br>
