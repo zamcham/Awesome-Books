@@ -1,6 +1,12 @@
-let booksInfo = JSON.parse(localStorage.getItem('books') || '[]');
+const booksInfo = JSON.parse(localStorage.getItem('books') || '[]');
 const bookTemplate = document.getElementById('bookInfoTemplate');
 const booksContainer = document.querySelector('.booksContainer');
+
+function removeBook(index) {
+  booksInfo.splice(index, 1);
+  localStorage.setItem('books', JSON.stringify(booksInfo));
+  renderBooks();
+}
 
 function renderBooks() {
   booksContainer.innerHTML = '';
@@ -16,16 +22,10 @@ function renderBooks() {
   }
 }
 
-function removeBook(index) {
-  booksInfo.splice(index, 1);
-  localStorage.setItem('books', JSON.stringify(booksInfo));
-  renderBooks();
-}
-
 function addBookToList() {
-  let bookTitle = document.getElementById("bookTitle").value;
-  let authorName = document.getElementById("bookAuthor").value;
-  let newBook = {
+  const bookTitle = document.getElementById('bookTitle').value;
+  const authorName = document.getElementById('bookAuthor').value;
+  const newBook = {
     title: bookTitle,
     author: authorName,
   };
@@ -34,5 +34,5 @@ function addBookToList() {
   renderBooks();
 }
 
-document.getElementById("addBookButton").addEventListener("click", addBookToList);
+document.getElementById('addBookButton').addEventListener('click', addBookToList);
 renderBooks();
