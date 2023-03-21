@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awesome Books</title>
     <script src="index.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Inter:wght@100;300;400;500;900&display=swap');
+    </style>
 </head>
 <body>
     <div class="container title">
@@ -19,12 +23,10 @@
           <p></p>
           <button class="removeButton">Remove</button>
         </div>
-      </template>
-      <div class="booksContainer"></div>
-            <hr>
-        </div>
+    </template>
     </template>
     <div class="container" id="addBookForm">
+        <h2>Add A New Book</h2>
         <form>
             <input type="text" id="bookTitle" placeholder="Book Title"><br />
             <input type="text" id="bookAuthor" placeholder="Author Name"><br />

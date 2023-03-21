@@ -1,3 +1,18 @@
-body {
-  font-size: 1rem;
+.container {
+  font-family: 'Arvo', serif;
+  text-align: center;
+}
+
+.booksContainer {
+  background-color: gray;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border: solid black 3px;
+}
+
+.book {
+  display: flex;
+  justify-content: space-between;
 }
