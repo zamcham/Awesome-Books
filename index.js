@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -17,6 +18,7 @@ class BookList {
       });
     });
   }
+
   removeBook(index) {
     this.booksInfo.splice(index, 1);
     this.updateStorage();
@@ -46,7 +48,7 @@ class BooksListUI {
       bookInstance.querySelector('h4').textContent = book.title;
       bookInstance.querySelector('p').textContent = book.author;
       bookInstance.querySelector('.removeButton').addEventListener('click', () => {
-        removeBookFn()
+        removeBookFn();
         this.render();
       });
       this.booksContainer.appendChild(bookInstance);
