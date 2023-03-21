@@ -23,11 +23,10 @@ hr {
   font-family: 'Great Vibes', cursive;
   text-align: center;
   width: 50%;
-  margin: auto;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem auto;
 }
 
 .booksContainer {
@@ -66,4 +65,4 @@ hr {
 
 .addBookForm button {
   margin: auto;
-} 
+}
