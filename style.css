@@ -1,10 +1,37 @@
+html {
+  font-size: 62.5%;
+}
+
+button {
+  height: 3rem;
+  width: 8rem;
+  margin: 0 1rem;
+  background-color: white;
+  box-shadow: 5px 4px black;
+}
+
+h1,
+h2 {
+  font-size: 3rem;
+}
+
+hr {
+  width: 50%;
+}
+
 .container {
-  font-family: 'Arvo', serif;
+  font-family: 'Great Vibes', cursive;
   text-align: center;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem auto;
 }
 
 .booksContainer {
-  background-color: gray;
+  font-size: 1.5rem;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -15,4 +42,28 @@
 .book {
   display: flex;
   justify-content: space-between;
+  height: 4rem;
 }
+
+.book:nth-child(even) {
+  background-color: #c7d6d8;
+}
+
+.bookTitleAuthor {
+  display: flex;
+  align-items: center;
+}
+
+.bookTitleAuthor > * {
+  margin: 0 0.3rem;
+}
+
+.addBookForm input {
+  width: 50%;
+  margin: 0.5rem 0;
+  border: solid black 3px;
+}
+
+.addBookForm button {
+  margin: auto;
+} 

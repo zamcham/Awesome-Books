@@ -8,7 +8,7 @@
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Inter:wght@100;300;400;500;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;800&family=Great+Vibes&display=swap');
     </style>
 </head>
 <body>
@@ -19,13 +19,16 @@
     </div>
     <template id="bookInfoTemplate">
         <div class="book">
-          <h4></h4>
-          <p></p>
+            <div class="bookTitleAuthor">
+                <h4></h4>
+                <span>by</span>
+                <p></p>
+            </div>
           <button class="removeButton">Remove</button>
         </div>
     </template>
-    </template>
-    <div class="container" id="addBookForm">
+    <div class="container addBookForm">
+        <hr>
         <h2>Add A New Book</h2>
         <form>
             <input type="text" id="bookTitle" placeholder="Book Title"><br />
