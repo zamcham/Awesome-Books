@@ -1,40 +1,41 @@
-const booksInfo = JSON.parse(localStorage.getItem('books') || '[]');
-const bookTemplate = document.getElementById('bookInfoTemplate');
-const booksContainer = document.querySelector('.booksContainer');
-
-function renderBooks() {
-  booksContainer.innerHTML = '';
-  for (let i = 0; i < booksInfo.length; i += 1) {
-    const bookInstance = bookTemplate.content.cloneNode(true);
-    const book = booksInfo[i];
-    bookInstance.querySelector('h4').textContent = book.title;
-    bookInstance.querySelector('p').textContent = book.author;
-    bookInstance.querySelector('.removeButton').addEventListener('click', () => {
-      // eslint-disable-next-line no-use-before-define
-      removeBook(i);
-    });
-    booksContainer.appendChild(bookInstance);
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
   }
 }
 
-function removeBook(index) {
-  booksInfo.splice(index, 1);
-  localStorage.setItem('books', JSON.stringify(booksInfo));
-  // eslint-disable-next-line no-use-before-define
-  renderBooks();
+class BookList {
+  constructor() {
+    this.booksInfo = JSON.parse(localStorage.getItem('books') || '[]');
+  }
+
+  renderBooks(renderFn) {
+    this.booksInfo.forEach((book, index) => {
+      renderFn(book, () => {
+        this.removeBook(index);
+      });
+    });
+  }
+  removeBook(index) {
+    this.booksInfo.splice(index, 1);
+    this.updateStorage();
+  }
+
+  addBook(book) {
+    this.booksInfo.push(book);
+    this.updateStorage();
+  }
+
+  updateStorage() {
+    localStorage.setItem('books', JSON.stringify(this.booksInfo));
+  }
 }
 
-function addBookToList() {
-  const bookTitle = document.getElementById('bookTitle').value;
-  const authorName = document.getElementById('bookAuthor').value;
-  const newBook = {
-    title: bookTitle,
-    author: authorName,
-  };
-  booksInfo.push(newBook);
-  localStorage.setItem('books', JSON.stringify(booksInfo));
-  renderBooks();
-}
+class BooksListUI {
+  constructor(bookList) {
+    this.bookList = bookList;
+    this.bookTemplate = document.getElementById('bookInfoTemplate');
+    this.booksContainer = document.querySelector('.booksContainer');
+  }
 
-document.getElementById('addBookButton').addEventListener('click', addBookToList);
-renderBooks();
