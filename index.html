@@ -12,29 +12,60 @@
     </style>
 </head>
 <body>
-    <div class="container title">
-        <h1>Awesome Books</h1>
+  <header>
+    <div class="brandin">
+      <h1 class="logo">Awesome Books</h1>
     </div>
-    <div class="booksContainer" id="bookList">
-    </div>
-    <template id="bookInfoTemplate">
+    <nav>
+      <ul id="navLinks">
+        <li class="link"><a>Books</a></li>
+        <li class="link"><a>Add Book</a></li>
+        <li class="link"><a>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="time-container">
+    <div class="live-date"></div>
+  </div>
+  <main>
+    <section id="books" class="contentSection">
+      <div class="container title">
+        <h1 tabindex="0">Awesome Books</h1>
+      </div>
+      <div class="booksContainer" id="bookList">
+      </div>
+      <template id="bookInfoTemplate">
         <div class="book">
-            <div class="bookTitleAuthor">
-                <h4></h4>
-                <span>by</span>
-                <p></p>
-            </div>
-          <button class="removeButton">Remove</button>
+          <div class="bookTitleAuthor">
+            <h4 tabindex="0"></h4>
+            <span>by</span>
+            <p tabindex="0"></p>
+          </div>
+          <button type="submit" aria-label="Remove books" class="removeButton" tabindex="0">Remove</button>
         </div>
-    </template>
-    <div class="container addBookForm">
-        <hr>
-        <h2>Add A New Book</h2>
+      </template>
+    </section>
+    <section id="addbook" class="contentSection hidden">
+      <div class="container addBookForm">
+        <h2 tabindex="0">Add A New Book</h2>
         <form>
-            <input type="text" id="bookTitle" placeholder="Book Title"><br />
-            <input type="text" id="bookAuthor" placeholder="Author Name"><br />
-            <button id="addBookButton">Add Book</button>
+          <input type="text" id="bookTitle" placeholder="Book Title" tabindex="0"><br />
+          <input type="text" id="bookAuthor" placeholder="Author Name" tabindex="0"><br />
+          <button type="submit" aria-label="Add books" id="addBookButton" tabindex="0">Add Book</button>
         </form>
-    </div>
+      </div>
+    </section>
+    <section id="contact" class="contentSection hidden">
+      <div class="container">
+        <h2 tabindex="0">Contact Information</h2>
+        <p class="contact-form__p" tabindex="0">Email: example@example.com</p>
+        <p class="contact-form__p" tabindex="0">Phone: 8900 XXXX</p>
+        <p class="contact-form__p" tabindex="0">Address: 1234 Book Street</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p tabindex="0">Awesome Books &copy; 2023</p>
+  </footer>
 </body>
 </html>

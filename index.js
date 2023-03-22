@@ -1,3 +1,4 @@
+// #region Book Render/Remove Functions
 // eslint-disable-next-line max-classes-per-file
 class Book {
   constructor(title, author) {
@@ -59,12 +60,68 @@ class BooksListUI {
 const bookList = new BookList();
 const booksListUI = new BooksListUI(bookList);
 
-document.getElementById('addBookButton').addEventListener('click', () => {
+document.getElementById('addBookButton').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const bookTitleInput = document.getElementById('bookTitle');
+  const authorNameInput = document.getElementById('bookAuthor');
   const bookTitle = document.getElementById('bookTitle').value;
   const authorName = document.getElementById('bookAuthor').value;
   const newBook = new Book(bookTitle, authorName);
   bookList.addBook(newBook);
   booksListUI.render();
+  // Clear the input fields after adding the book
+  bookTitleInput.value = '';
+  authorNameInput.value = '';
 });
 
 booksListUI.render();
+// #endregion
+// #region Hide and Show other pages
+const menu = document.getElementById('navLinks');
+const menuLinks = menu.children;
+
+for (let i = 0; i < menuLinks.length; i += 1) {
+  // We add an event listener to each menu link
+  menuLinks[i].addEventListener('click', () => {
+    // We get the text of the link (name) to use it as parameter
+    const textValue = menuLinks[i].textContent;
+    // we need to make the textValue without spaces and make it lowercase
+    const noSpacesString = textValue.replace(/\s+/g, '').toLowerCase();
+    const container = document.getElementById(noSpacesString);
+    // If the cliked is the one showing we do nothing
+    if (!container.classList.contains('hidden')) {
+      return;
+    }
+    // else, we hide it
+
+    container.classList.toggle('hidden');
+
+    // We get all the containers in the body
+    const allContainers = document.querySelectorAll('.contentSection');
+    // We only show the one that doesn't have 'hidden' class
+    allContainers.forEach((c) => {
+      if (c !== container && !c.classList.contains('hidden')) {
+        c.classList.toggle('hidden');
+      }
+    });
+  });
+}
+// #region
+// #region Update Date and Time
+function displayLiveDate() {
+  const liveDateElement = document.querySelector('.live-date');
+  const now = new Date();
+  const options = {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  };
+  const formattedDate = new Intl.DateTimeFormat('en-US', options).format(now);
+  liveDateElement.textContent = formattedDate;
+}
+displayLiveDate();
+setInterval(displayLiveDate, 30000);
+// #region
