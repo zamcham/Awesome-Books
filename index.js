@@ -1,3 +1,4 @@
+// #region Book Render/Remove Functions
 // eslint-disable-next-line max-classes-per-file
 class Book {
   constructor(title, author) {
@@ -68,3 +69,23 @@ document.getElementById('addBookButton').addEventListener('click', () => {
 });
 
 booksListUI.render();
+// #endregion
+
+const menuLinks = document.querySelectorAll('link');
+const contentSections = document.querySelectorAll('contentSection');
+
+for (let i = 0; i < menuLinks.length; i += 1) {
+  menuLinks[i].addEventListener('click', () => {
+    console.log('event listener added');
+  })
+}
+
+//we need to know which link/page is clicked to activate it the hidden
+//and hide all the other ones
+
+
+//When you click on the menu, we get the name of the tab as a parameter
+// match the parameter to the ID of the sections
+// toggle the hidden class on that section
+// if already hidden do nothing
+// else we toggle the hidden class
