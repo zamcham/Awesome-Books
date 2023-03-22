@@ -60,12 +60,19 @@ class BooksListUI {
 const bookList = new BookList();
 const booksListUI = new BooksListUI(bookList);
 
-document.getElementById('addBookButton').addEventListener('click', () => {
+document.getElementById('addBookButton').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const bookTitleInput = document.getElementById('bookTitle');
+  const authorNameInput = document.getElementById('bookAuthor');
   const bookTitle = document.getElementById('bookTitle').value;
   const authorName = document.getElementById('bookAuthor').value;
   const newBook = new Book(bookTitle, authorName);
   bookList.addBook(newBook);
   booksListUI.render();
+  // Clear the input fields after adding the book
+  bookTitleInput.value = '';
+  authorNameInput.value = '';
 });
 
 booksListUI.render();
@@ -116,6 +123,5 @@ function displayLiveDate() {
   liveDateElement.textContent = formattedDate;
 }
 displayLiveDate();
-// need a function that calls DisplayLiveDate() every minute
 setInterval(displayLiveDate, 30000);
 // #region
