@@ -12,29 +12,55 @@
     </style>
 </head>
 <body>
-    <div class="container title">
-        <h1>Awesome Books</h1>
-    </div>
-    <div class="booksContainer" id="bookList">
-    </div>
-    <template id="bookInfoTemplate">
-        <div class="book">
-            <div class="bookTitleAuthor">
-                <h4></h4>
+    <header>
+        <h1 class="logo">Awesome Books</h1>
+        <nav>
+          <button id="navBooks" class="navButton" tabindex="0">Books</button>
+          <button id="navAddBook" class="navButton" tabindex="0">Add Book</button>
+          <button id="navContact" class="navButton" tabindex="0">Contact</button>
+        </nav>
+      </header>
+      <div class="live-date"></div>
+      <main>
+        <section id="booksSection" class="contentSection">
+          <div class="container title">
+            <h1 tabindex="0">Awesome Books</h1>
+          </div>
+          <div class="booksContainer" id="bookList">
+          </div>
+          <template id="bookInfoTemplate">
+            <div class="book">
+              <div class="bookTitleAuthor">
+                <h4 tabindex="0"></h4>
                 <span>by</span>
-                <p></p>
+                <p tabindex="0"></p>
+              </div>
+              <button type="submit" aria-label="Remove books" class="removeButton" tabindex="0">Remove</button>
             </div>
-          <button class="removeButton">Remove</button>
-        </div>
-    </template>
-    <div class="container addBookForm">
-        <hr>
-        <h2>Add A New Book</h2>
-        <form>
-            <input type="text" id="bookTitle" placeholder="Book Title"><br />
-            <input type="text" id="bookAuthor" placeholder="Author Name"><br />
-            <button id="addBookButton">Add Book</button>
-        </form>
-    </div>
+          </template>
+        </section>
+        <section id="addBookSection" class="contentSection hidden">
+          <div class="container addBookForm">
+            <hr>
+            <h2 tabindex="0">Add A New Book</h2>
+            <form>
+              <input type="text" id="bookTitle" placeholder="Book Title" tabindex="0"><br />
+              <input type="text" id="bookAuthor" placeholder="Author Name" tabindex="0"><br />
+              <button type="submit" aria-label="Add books" id="addBookButton" tabindex="0">Add Book</button>
+            </form>
+          </div>
+        </section>
+        <section id="contactSection" class="contentSection hidden">
+          <div class="container">
+            <h2 tabindex="0">Contact Information</h2>
+            <p tabindex="0">Email: example@example.com</p>
+            <p tabindex="0">Phone: 8900</p>
+            <p tabindex="0">Address: 1234 Book Street</p>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p tabindex="0">Awesome Books &copy; 2023</p>
+      </footer>
 </body>
 </html>
