@@ -118,4 +118,6 @@ function displayLiveDate() {
 }
 displayLiveDate(); 
 // need a function that calls DisplayLiveDate() every minute
-// #region 
+setInterval(displayLiveDate, 30000);
+// #region
+
