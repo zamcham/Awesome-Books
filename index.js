@@ -70,22 +70,52 @@ document.getElementById('addBookButton').addEventListener('click', () => {
 
 booksListUI.render();
 // #endregion
-
-const menuLinks = document.querySelectorAll('link');
+// #region Hide and Show other pages
+const menu = document.getElementById('navLinks');
+const menuLinks = menu.children;
 const contentSections = document.querySelectorAll('contentSection');
 
 for (let i = 0; i < menuLinks.length; i += 1) {
+  // We add an event listener to each menu link
   menuLinks[i].addEventListener('click', () => {
-    console.log('event listener added');
-  })
+    // We get the text of the link (name) to use it as parameter
+    const textValue = menuLinks[i].textContent;
+    // we need to make the textValue without spaces and make it lowercase
+    const noSpacesString = textValue.replace(/\s+/g, "").toLowerCase();
+    const container = document.getElementById(noSpacesString);
+    // If the cliked is the one showing we do nothing
+    if (!container.classList.contains('hidden')) {
+      return;
+    }
+    // else, we hide it
+    else {
+      container.classList.toggle('hidden');
+    }
+    // We get all the containers in the body
+    const allContainers = document.querySelectorAll('.contentSection');
+    // We only show the one that doesn't have 'hidden' class
+    allContainers.forEach((c) => {
+      if (c !== container && !c.classList.contains('hidden')) {
+        c.classList.toggle('hidden');
+      }
+    });
+  });
+};
+// #region 
+// #region Update Date and Time 
+function displayLiveDate() {
+  const liveDateElement = document.querySelector('.live-date');
+  const now = new Date();
+  const options = {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  };
+  const formattedDate = new Intl.DateTimeFormat('en-US', options).format(now);
+  liveDateElement.textContent = formattedDate;
 }
-
-//we need to know which link/page is clicked to activate it the hidden
-//and hide all the other ones
-
-
-//When you click on the menu, we get the name of the tab as a parameter
-// match the parameter to the ID of the sections
-// toggle the hidden class on that section
-// if already hidden do nothing
-// else we toggle the hidden class
+displayLiveDate(); 
+// need a function that calls DisplayLiveDate() every minute
+// #region 

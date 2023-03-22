@@ -23,13 +23,14 @@ header {
   display: flex;
 }
 
-.navLinks {
+#navLinks {
   display: flex;
 }
 
 li {
   list-style: none;
   margin: 0 1rem;
+  cursor: pointer;
 }
 
 .container {
