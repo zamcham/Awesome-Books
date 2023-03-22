@@ -73,7 +73,6 @@ booksListUI.render();
 // #region Hide and Show other pages
 const menu = document.getElementById('navLinks');
 const menuLinks = menu.children;
-const contentSections = document.querySelectorAll('contentSection');
 
 for (let i = 0; i < menuLinks.length; i += 1) {
   // We add an event listener to each menu link
@@ -81,16 +80,16 @@ for (let i = 0; i < menuLinks.length; i += 1) {
     // We get the text of the link (name) to use it as parameter
     const textValue = menuLinks[i].textContent;
     // we need to make the textValue without spaces and make it lowercase
-    const noSpacesString = textValue.replace(/\s+/g, "").toLowerCase();
+    const noSpacesString = textValue.replace(/\s+/g, '').toLowerCase();
     const container = document.getElementById(noSpacesString);
     // If the cliked is the one showing we do nothing
     if (!container.classList.contains('hidden')) {
       return;
     }
     // else, we hide it
-    else {
-      container.classList.toggle('hidden');
-    }
+
+    container.classList.toggle('hidden');
+
     // We get all the containers in the body
     const allContainers = document.querySelectorAll('.contentSection');
     // We only show the one that doesn't have 'hidden' class
@@ -100,9 +99,9 @@ for (let i = 0; i < menuLinks.length; i += 1) {
       }
     });
   });
-};
-// #region 
-// #region Update Date and Time 
+}
+// #region
+// #region Update Date and Time
 function displayLiveDate() {
   const liveDateElement = document.querySelector('.live-date');
   const now = new Date();
@@ -116,8 +115,7 @@ function displayLiveDate() {
   const formattedDate = new Intl.DateTimeFormat('en-US', options).format(now);
   liveDateElement.textContent = formattedDate;
 }
-displayLiveDate(); 
+displayLiveDate();
 // need a function that calls DisplayLiveDate() every minute
 setInterval(displayLiveDate, 30000);
 // #region
-
