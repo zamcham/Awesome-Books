@@ -2,6 +2,7 @@ import Book from '/Modules/book.js';
 import BookList from '/Modules/bookList.js';
 import BooksListUI from '/Modules/booksListUI.js';
 import setupMenu from './Modules/menu.js';
+import { DateTime } from "./node_modules/luxon/build/es6/luxon.js";
 
 const bookList = new BookList();
 const booksListUI = new BooksListUI(bookList);
@@ -25,3 +26,12 @@ booksListUI.render();
 
 // Call the setupMenu function to initialize the menu
 setupMenu();
+
+function updateLiveDate() {
+  const liveDate = document.querySelector('.live-date');
+  const timeNow = DateTime.local().toLocaleString(DateTime.DATETIME_FULL);
+
+  liveDate.textContent = timeNow;
+}
+
+setInterval(updateLiveDate, 1000);
