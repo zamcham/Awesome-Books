@@ -1,5 +1,3 @@
-import BookList from '/Modules/bookList.js';
-
 export default class BooksListUI {
   constructor(bookList) {
     this.bookList = bookList;

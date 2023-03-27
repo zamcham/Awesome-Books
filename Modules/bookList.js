@@ -1,5 +1,3 @@
-import Book from '/Modules/book.js';
-
 export default class BookList {
   constructor() {
     this.booksInfo = JSON.parse(localStorage.getItem('books') || '[]');
