@@ -5,7 +5,6 @@ export default function setupMenu() {
   for (let i = 0; i < menuLinks.length; i += 1) {
     // We add an event listener to each menu link
     menuLinks[i].addEventListener('click', () => {
-      console.log("clicked!");
       // We get the text of the link (name) to use it as parameter
       const textValue = menuLinks[i].textContent;
       // we need to make the textValue without spaces and make it lowercase
