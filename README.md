@@ -2,7 +2,7 @@
 
 
 <div align="center">
-  <img src="./assets/img/logo/logo-readme.png" alt="logo" width="300"  height="auto" />
+  <img src="./Images/zc_logo.png" alt="logo" width="300"  height="auto" />
   <br/>
 
   <h3><b>Awesome Books</b></h3>
