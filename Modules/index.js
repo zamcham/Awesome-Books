@@ -2,7 +2,7 @@ import Book from './book.js';
 import BookList from './bookList.js';
 import BooksListUI from './booksListUI.js';
 import setupMenu from './menu.js';
-import { DateTime } from "../node_modules/luxon/build/es6/luxon.js";
+import { DateTime } from '../node_modules/luxon/build/es6/luxon.js';
 
 const bookList = new BookList();
 const booksListUI = new BooksListUI(bookList);
