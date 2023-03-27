@@ -32,6 +32,6 @@ const updateLiveDate = () => {
   const timeNow = DateTime.local().toLocaleString(DateTime.DATETIME_FULL);
 
   liveDate.textContent = timeNow;
-}
+};
 
 setInterval(updateLiveDate, 1000);
