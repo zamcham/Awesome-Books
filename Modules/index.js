@@ -27,7 +27,7 @@ booksListUI.render();
 // Call the setupMenu function to initialize the menu
 setupMenu();
 
-function updateLiveDate() {
+const updateLiveDate = () => {
   const liveDate = document.querySelector('.live-date');
   const timeNow = DateTime.local().toLocaleString(DateTime.DATETIME_FULL);
 
